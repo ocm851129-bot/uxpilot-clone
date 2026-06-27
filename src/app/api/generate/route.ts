@@ -19,6 +19,57 @@ Rules:
 - Do NOT include any explanations, only pure HTML code
 - The design should look professional and modern like a real product`;
 
+function getErrorMessage(err: unknown): { html: string; status: number } {
+  const raw = err instanceof Error ? err.message : String(err);
+
+  if (raw.includes("credit balance is too low") || raw.includes("Your credit balance")) {
+    return {
+      status: 402,
+      html: `<!DOCTYPE html><html><body style="background:#0a0a0f;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;">
+<div style="text-align:center;max-width:400px;padding:2rem;">
+  <div style="font-size:3rem;margin-bottom:1rem;">💳</div>
+  <h2 style="color:#f87171;font-size:1.25rem;margin-bottom:0.75rem;">Anthropic 크레딧 부족</h2>
+  <p style="color:#9ca3af;font-size:0.875rem;line-height:1.6;margin-bottom:1.5rem;">
+    API 크레딧이 소진되었습니다.<br/>
+    Anthropic 콘솔에서 크레딧을 충전해주세요.
+  </p>
+  <a href="https://console.anthropic.com/settings/billing" target="_blank"
+     style="display:inline-block;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:white;padding:0.75rem 1.5rem;border-radius:0.75rem;text-decoration:none;font-size:0.875rem;font-weight:600;">
+    크레딧 충전하기 →
+  </a>
+</div>
+</body></html>`,
+    };
+  }
+
+  if (raw.includes("401") || raw.includes("invalid_api_key") || raw.includes("Authentication")) {
+    return {
+      status: 401,
+      html: `<!DOCTYPE html><html><body style="background:#0a0a0f;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;">
+<div style="text-align:center;max-width:400px;padding:2rem;">
+  <div style="font-size:3rem;margin-bottom:1rem;">🔑</div>
+  <h2 style="color:#f87171;font-size:1.25rem;margin-bottom:0.75rem;">API 키 오류</h2>
+  <p style="color:#9ca3af;font-size:0.875rem;line-height:1.6;">
+    ANTHROPIC_API_KEY가 유효하지 않습니다.<br/>
+    .env.local 파일의 API 키를 확인해주세요.
+  </p>
+</div>
+</body></html>`,
+    };
+  }
+
+  return {
+    status: 500,
+    html: `<!DOCTYPE html><html><body style="background:#0a0a0f;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;">
+<div style="text-align:center;max-width:400px;padding:2rem;">
+  <div style="font-size:3rem;margin-bottom:1rem;">⚠️</div>
+  <h2 style="color:#f87171;font-size:1.25rem;margin-bottom:0.75rem;">생성 오류</h2>
+  <p style="color:#9ca3af;font-size:0.875rem;">${raw.slice(0, 200)}</p>
+</div>
+</body></html>`,
+  };
+}
+
 export async function POST(req: NextRequest) {
   const { prompt, style = "modern dark" } = await req.json();
 
@@ -49,15 +100,14 @@ Requirements: Full page with proper layout, navigation if needed, realistic cont
             event.type === "content_block_delta" &&
             event.delta.type === "text_delta"
           ) {
-            const chunk = event.delta.text;
-            controller.enqueue(encoder.encode(chunk));
+            controller.enqueue(encoder.encode(event.delta.text));
           }
         }
 
         controller.close();
       } catch (err) {
-        const msg = err instanceof Error ? err.message : "생성 오류가 발생했습니다";
-        controller.enqueue(encoder.encode(`<p style="color:red;padding:2rem;">${msg}</p>`));
+        const { html } = getErrorMessage(err);
+        controller.enqueue(encoder.encode(html));
         controller.close();
       }
     },
