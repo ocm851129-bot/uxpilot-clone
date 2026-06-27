@@ -87,7 +87,7 @@ export default function HeroSection() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
               <div className="w-3 h-3 rounded-full bg-green-500/70" />
               <div className="flex-1 mx-4 bg-[#1a1a2e] rounded-md px-3 py-1 text-xs text-gray-500">
-                uxpilot.local/generate
+                metauix.local/generate
               </div>
             </div>
             {/* Mock UI Generation Preview */}

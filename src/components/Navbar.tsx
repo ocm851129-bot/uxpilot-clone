@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center">
               <Zap className="w-4 h-4 text-white" />
             </div>
-            <span className="gradient-text">UX Pilot</span>
+            <span className="gradient-text">MetaUI/UX</span>
           </Link>
 
           {/* Desktop Nav */}

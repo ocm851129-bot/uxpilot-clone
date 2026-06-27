@@ -164,7 +164,7 @@ function GeneratePageContent() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `uxpilot-${Date.now()}.html`;
+    a.download = `metauix-${Date.now()}.html`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -189,7 +189,7 @@ function GeneratePageContent() {
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center">
               <Zap className="w-3.5 h-3.5 text-white" />
             </div>
-            <span className="font-semibold text-sm gradient-text">UX Pilot</span>
+            <span className="font-semibold text-sm gradient-text">MetaUI/UX</span>
           </div>
         </div>
 

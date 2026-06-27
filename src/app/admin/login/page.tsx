@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
             </div>
           </div>
           <div className="mt-3">
-            <h1 className="text-xl font-bold text-white">UX Pilot</h1>
+            <h1 className="text-xl font-bold text-white">MetaUI/UX</h1>
             <div className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
               <Shield className="w-3.5 h-3.5 text-red-400" />
               <span className="text-xs text-red-400 font-medium">관리자 전용</span>

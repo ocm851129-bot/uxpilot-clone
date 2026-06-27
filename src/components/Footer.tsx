@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-white" />
               </div>
-              <span className="gradient-text">UX Pilot</span>
+              <span className="gradient-text">MetaUI/UX</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               AI 기반의 UI 디자인 생성 플랫폼. 프롬프트 하나로 완성된 UI를 몇 초 만에 생성하세요.
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-[#1f1f2e] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">© 2026 UX Pilot. All rights reserved.</p>
+          <p className="text-sm text-gray-500">© 2026 MetaUI/UX. All rights reserved.</p>
           <p className="text-sm text-gray-500">Powered by <span className="text-violet-400">Claude AI</span></p>
         </div>
       </div>

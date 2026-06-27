@@ -62,7 +62,7 @@ export default function DashboardPage() {
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center">
             <Zap className="w-3.5 h-3.5 text-white" />
           </div>
-          <span className="font-bold text-sm gradient-text">UX Pilot</span>
+          <span className="font-bold text-sm gradient-text">MetaUI/UX</span>
         </div>
 
         {/* Nav */}

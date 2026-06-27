@@ -40,7 +40,7 @@ export default function AdminSidebar() {
           <Zap className="w-4 h-4 text-white" />
         </div>
         <div>
-          <p className="text-sm font-bold text-white leading-none">UX Pilot</p>
+          <p className="text-sm font-bold text-white leading-none">MetaUI/UX</p>
           <div className="flex items-center gap-1 mt-0.5">
             <Shield className="w-2.5 h-2.5 text-red-400" />
             <span className="text-[10px] text-red-400 font-medium">Admin CMS</span>

@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    content: "UX Pilot 덕분에 디자인 작업 시간이 80% 줄었어요. 프롬프트 하나로 완성도 높은 UI를 바로 얻을 수 있다는 게 믿기지 않을 정도입니다.",
+    content: "MetaUI/UX 덕분에 디자인 작업 시간이 80% 줄었어요. 프롬프트 하나로 완성도 높은 UI를 바로 얻을 수 있다는 게 믿기지 않을 정도입니다.",
     author: "김지현",
     role: "스타트업 창업자",
     gradient: "from-violet-500 to-purple-500",
@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
             사용자들의 이야기
           </h2>
           <p className="text-gray-400 text-lg">
-            전 세계 1M+ 팀이 UX Pilot을 선택한 이유
+            전 세계 1M+ 팀이 MetaUI/UX을 선택한 이유
           </p>
         </div>
 

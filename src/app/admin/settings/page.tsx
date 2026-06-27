@@ -7,7 +7,7 @@ import { Save, Shield, Zap, Globe, Bell, Check } from "lucide-react";
 export default function SettingsPage() {
   const [toast, setToast] = useState("");
   const [settings, setSettings] = useState({
-    siteName: "UX Pilot",
+    siteName: "MetaUI/UX",
     siteDesc: "AI 기반의 UI 디자인 생성 플랫폼",
     signupCredits: 45,
     maxCreditsPerUser: 9999,

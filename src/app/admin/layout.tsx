@@ -1,8 +1,8 @@
 import AdminSidebar from "@/components/admin/AdminSidebar";
 
 export const metadata = {
-  title: "UX Pilot — Admin CMS",
-  description: "UX Pilot 관리자 패널",
+  title: "MetaUI/UX — Admin CMS",
+  description: "MetaUI/UX 관리자 패널",
 };
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

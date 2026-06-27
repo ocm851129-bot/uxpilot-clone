@@ -5,8 +5,8 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "UX Pilot은 어떻게 동작하나요?",
-    a: "UX Pilot은 Claude AI를 활용하여 자연어 프롬프트를 완성된 HTML/CSS UI 코드로 변환합니다. 원하는 UI를 텍스트로 설명하면 AI가 즉시 생성하고 브라우저에서 바로 미리볼 수 있습니다.",
+    q: "MetaUI/UX은 어떻게 동작하나요?",
+    a: "MetaUI/UX은 Claude AI를 활용하여 자연어 프롬프트를 완성된 HTML/CSS UI 코드로 변환합니다. 원하는 UI를 텍스트로 설명하면 AI가 즉시 생성하고 브라우저에서 바로 미리볼 수 있습니다.",
   },
   {
     q: "생성된 코드를 어떻게 활용할 수 있나요?",
