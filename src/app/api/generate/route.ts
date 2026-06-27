@@ -81,7 +81,7 @@ Requirements: Full page with proper layout, navigation if needed, realistic cont
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContentStream(fullPrompt);
 
         let buffer = "";
