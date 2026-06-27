@@ -19,6 +19,7 @@ Rules:
 
 function getErrorHtml(err: unknown): string {
   const raw = err instanceof Error ? err.message : String(err);
+  console.error("[Gemini API Error]", raw);
 
   if (raw.includes("API_KEY_INVALID") || raw.includes("invalid") || raw.includes("API key")) {
     return `<!DOCTYPE html><html><body style="background:#0a0a0f;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;">
@@ -46,15 +47,16 @@ function getErrorHtml(err: unknown): string {
     Gemini API 요청 한도에 도달했습니다.<br/>
     잠시 후 다시 시도해주세요.
   </p>
+  <p style="color:#4b5563;font-size:0.7rem;margin-top:1rem;">${raw.slice(0, 200)}</p>
 </div>
 </body></html>`;
   }
 
   return `<!DOCTYPE html><html><body style="background:#0a0a0f;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:sans-serif;">
-<div style="text-align:center;max-width:400px;padding:2rem;">
+<div style="text-align:center;max-width:500px;padding:2rem;">
   <div style="font-size:3rem;margin-bottom:1rem;">⚠️</div>
   <h2 style="color:#f87171;font-size:1.25rem;margin-bottom:0.75rem;">생성 오류</h2>
-  <p style="color:#9ca3af;font-size:0.875rem;">${raw.slice(0, 300)}</p>
+  <p style="color:#9ca3af;font-size:0.875rem;word-break:break-all;">${raw.slice(0, 400)}</p>
 </div>
 </body></html>`;
 }
